@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - TechShop</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styleshoppingcartpage.css"> <!-- Link to the Cart Page CSS file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
+</head>
+<body>
+
+<!-- Header Section -->
+<header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="homepage.html">TechShop</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="homepage.html">HOME</a></li>
+                <li class="nav-item"><a class="nav-link" href="aboutuspage.html">ABOUT</a></li>
+                <li class="nav-item"><a class="nav-link" href="productpage.html">PRODUCT</a></li>
+                <li class="nav-item"><a class="nav-link" href="shoppingcartpage.html">CART</a></li>
+                <li class="nav-item"><a class="nav-link" href="contactpage.html">CONTACT</a></li>
+                <li class="nav-item"><a class="nav-link btn btn-pink" href="#">SIGN UP</a></li>
+                <!-- Search Bar -->
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control search-bar" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn search-button" type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- Cart Section -->
+<section class="cart-section">
+    <div class="container">
+        <h1 class="text-center">Shopping Cart</h1>
+        <div class="row">
+            <!-- Cart Item 1 -->
+            <div class="col-md-8">
+                <div class="cart-item">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="tv1.jpg" alt="Smart LED TV" class="img-fluid">
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Smart LED TV</h5>
+                            <p>Price: <span class="product-price">499.99</span> USD</p>
+                            <p>Quantity: 
+                                <input type="number" class="quantity-input" value="1" min="1" max="10">
+                            </p>
+                        </div>
+                        <div class="col-md-3 text-right">
+                            <p class="total-price">499.99</p>
+                            <button class="btn btn-danger btn-sm">Remove</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Cart Item 2 -->
+                <div class="cart-item">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="headphones1.jpg" alt="Wireless Noise-Cancelling Headphones" class="img-fluid">
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Wireless Noise-Cancelling Headphones</h5>
+                            <p>Price: <span class="product-price">149.99</span> USD</p>
+                            <p>Quantity: 
+                                <input type="number" class="quantity-input" value="1" min="1" max="10">
+                            </p>
+                        </div>
+                        <div class="col-md-3 text-right">
+                            <p class="total-price">149.99</p>
+                            <button class="btn btn-danger btn-sm">Remove</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Cart Item 3 -->
+                <div class="cart-item">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="camera1.jpg" alt="Home Security Camera" class="img-fluid">
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Home Security Camera</h5>
+                            <p>Price: <span class="product-price">79.99</span> USD</p>
+                            <p>Quantity: 
+                                <input type="number" class="quantity-input" value="1" min="1" max="10">
+                            </p>
+                        </div>
+                        <div class="col-md-3 text-right">
+                            <p class="total-price">79.99</p>
+                            <button class="btn btn-danger btn-sm">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cart Summary -->
+            <div class="col-md-4">
+                <div class="cart-summary">
+                    <h4>Cart Summary</h4>
+                    <p>Total Items: <span class="total-items">3</span></p>
+                    <h5>Total Price: <span class="total-price-sum">729.97</span> USD</h5>
+                    <button class="btn btn-primary btn-block">Proceed to Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="text-center">
+    <p>&copy; 2024 Electronic Store. All rights reserved.</p>
+    <p>Follow us on Instagram: @electronicstore</p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        function updateCart() {
+            const cartItems = document.querySelectorAll('.cart-item');
+            let totalSum = 0;
+
+            cartItems.forEach(item => {
+                const price = parseFloat(item.querySelector('.product-price').textContent);
+                const quantity = parseInt(item.querySelector('.quantity-input').value);
+                const totalPriceElement = item.querySelector('.total-price');
+
+                const totalPrice = price * quantity;
+                totalPriceElement.textContent = totalPrice.toFixed(2); // Update individual item total
+                totalSum += totalPrice; // Add to total sum
+            });
+
+            // Update total items and total price in summary
+            document.querySelector('.total-items').textContent = cartItems.length;
+            document.querySelector('.total-price-sum').textContent = totalSum.toFixed(2);
+        }
+
+        // Add event listeners to quantity inputs
+        const quantityInputs = document.querySelectorAll('.quantity-input');
+        quantityInputs.forEach(input => {
+            input.addEventListener('change', updateCart);
+        });
+
+        updateCart(); // Initial calculation
+    });
+</script>
+</body>
+</html>

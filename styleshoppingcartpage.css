@@ -1,0 +1,156 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #2C3E50; /* Dark background */
+    color: #FFF;
+}
+
+/* Header Styles */
+header {
+    background-color: #34495E; /* Header background color */
+    font-weight: bold;
+}
+
+.nav-link {
+    color: #FFF;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #00CCDD; /* Change text color on hover */
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #00CCDD; /* Underline color */
+    left: 0;
+    bottom: -5px; /* Positioning of underline */
+    transform: scaleX(0); /* Initially hidden */
+    transition: transform 0.3s ease; /* Transition effect */
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1); /* Show underline on hover */
+}
+
+
+.btn-pink {
+    background-color: #FF4081; /* Sign Up button color */
+    color: #FFF;
+}
+
+/* Cart Section Styles */
+.cart-section {
+    padding: 50px 0;
+    background-color: #34495E;
+}
+
+.cart-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cart-item h5 {
+    font-size: 1.3rem;
+    color: #00CCDD;
+}
+
+.cart-item p {
+    font-size: 1rem;
+    color: #FFF;
+}
+
+.quantity-input {
+    width: 60px;
+    text-align: center;
+    margin: 10px 0;
+    border: 2px solid #CCC;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.cart-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Cart Summary Styles */
+.cart-summary {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #FFF;
+}
+
+.cart-summary h4 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #00CCDD;
+}
+
+.cart-summary p, .cart-summary h5 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #FFF;
+}
+
+.cart-summary button {
+    background-color: #00CCDD;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+.cart-summary button:hover {
+    background-color: #FF4081;
+}
+
+
+footer {
+    background-color: #34495E; /* Footer background color */
+    padding: 5px 0; /* Further reduced padding for a slimmer footer */
+    color: #FFF;
+    text-align: center; /* Center the text */
+    font-size: 12px; /* Further reduced font size */
+}
+
+
+/* Search Bar Styles */
+.search-bar {
+    width: 200px; /* Width of the search bar */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #00CCDD; /* Border color */
+}
+
+.search-button {
+    background-color: #00CCDD; /* Search button color */
+    color: #FFF;
+    border: none; /* Remove border */
+    padding: 6px 12px; /* Padding for button */
+    margin-left: 5px; /* Space between input and button */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Font Awesome Icon */
+.search-button i {
+    margin: 0; /* Remove margin */
+}
